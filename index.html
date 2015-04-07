@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="description" content="Testing Highcharts on LLSIF data"/>
+		<title>highcharts-test</title>
+		<style type="text/css">
+			body {
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+				border: 0;
+				font-family: "Segoe UI", Calibri, sans-serif;
+				color: #FFF;
+			}
+			h1 {
+				box-sizing: inherit;
+				display: inline;
+				margin: 0;
+				padding: 0;
+				top: 0px;
+				height: 100%;
+				position: relative;
+			}
+			div#container {
+				box-sizing: inherit;
+				top: 75px;
+				left: 0px;
+				width: 100%;
+				bottom: 0%;
+				position: fixed;
+				transition: filter 0.5s ease-in-out;
+			}
+			div#header {
+				box-sizing:inherit;
+				margin: 0;
+				padding: 0 0.33em 0 0.33em;
+				top: 0px;
+				left: 0px;
+				height: 76px;
+				width: 100%;
+				background-color: rgb(74, 59, 113);
+				z-index: 25252;
+			}
+			div#header > table {
+				position: relative;
+				top: -2px;
+			}
+			table, tbody, tr, td {
+				border: 0;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			img.img-frame {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			.blurred {
+				filter: blur(2px);
+			}
+		</style>
+		<script src="common/jquery.js"></script>
+		<script src="common/highcharts.js"></script>
+		<script src="highcharts/madolche.js"></script>
+		<script src="js/lldatamaniplib.js"></script>
+		<script type="text/javascript">
+			var chart;
+			$(function () { 
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'container',
+						type: 'line',
+						animation: {
+							duration: 500
+						},
+						events: {
+							load: initRequest
+						},
+						zoomType: 'x'
+					},
+					tooltip: {
+						shared: true,
+						crosshairs: true
+					},
+					title: {
+						text: 'Personal Rankings'
+					},
+					subtitle: {
+						text: 'Current Event'
+					},
+					xAxis: {
+						title: {
+							text: 'Step'
+						}
+					},
+					yAxis: [{
+						min: 0,
+						title: {
+							text: 'Score'
+						}
+					}, {
+						min: 1,
+						opposite: true,
+						reversed: true,
+						title: {
+							text: 'Rank',
+						}
+					}],
+					series: [
+					]
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="header">
+			<table width="100%" height="74px" cellpadding="0">
+				<tr>
+					<td valign="middle" width="63px">
+						<img src="res/hanayo-quickrendah2.png" height="74px" class="img-frame"></img>
+					</td>
+					<td valign="middle">
+						<h1>Lorem Ipsum</h1>
+					</td>
+					<td width="25%" align="right">
+						dolor sit amet
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="container"></div>
+	</body>
+	<script type="text/javascript">
+		
+	</script>
+</html>
